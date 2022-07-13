@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Livraria.DATA.Models
 {
-    public partial class Livro
+    public partial class Livros
     {
-        public Livro()
+        public Livros()
         {
             LivrosCliente = new HashSet<LivrosClientes>();
         }
@@ -26,6 +26,11 @@ namespace Livraria.DATA.Models
         [Required]
         [StringLength(100)]
         public string Editora { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime AnoPublicacao { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string Edicao { get; set; }
 
         [InverseProperty("IdLivroNavigation")]
         public virtual ICollection<LivrosClientes> LivrosCliente { get; set; }

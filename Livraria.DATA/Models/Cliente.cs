@@ -33,6 +33,13 @@ namespace Livraria.DATA.Models
         [Required]
         [StringLength(50)]
         public string Cidade { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string Numero { get; set; }
+        [StringLength(14)]
+        public string TelefoneCelular { get; set; }
+        [StringLength(13)]
+        public string TelefoneFixo { get; set; }
 
         [InverseProperty("IdClienteNavigation")]
         public virtual ICollection<LivrosClientes> LivrosCliente { get; set; }

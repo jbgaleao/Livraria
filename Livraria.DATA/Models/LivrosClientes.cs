@@ -13,18 +13,19 @@ namespace Livraria.DATA.Models
     {
         [Key]
         public int Id { get; set; }
-        public int IdCliente { get; set; }
-        public int IdLivro { get; set; }
+        public int? IdCliente { get; set; }
+        public int? IdLivro { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime DataEmprestimo { get; set; }
+        public DateTime? DataEmprestimo { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime DataDevolucao { get; set; }
+        public DateTime? DataEntrega { get; set; }
+        public bool? Entregue { get; set; }
 
         [ForeignKey(nameof(IdCliente))]
         [InverseProperty(nameof(Cliente.LivrosCliente))]
         public virtual Cliente IdClienteNavigation { get; set; }
         [ForeignKey(nameof(IdLivro))]
-        [InverseProperty(nameof(Livro.LivrosCliente))]
-        public virtual Livro IdLivroNavigation { get; set; }
+        [InverseProperty(nameof(Livros.LivrosCliente))]
+        public virtual Livros IdLivroNavigation { get; set; }
     }
 }
