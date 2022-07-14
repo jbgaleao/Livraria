@@ -21,5 +21,17 @@ namespace Livraria.WEB.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Create(Cliente cliente)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            oClienteService.oRepositoryCliente.Incluir(cliente);
+            return RedirectToAction("Index");
+        }
+
     }
 }
