@@ -33,5 +33,10 @@ namespace Livraria.WEB.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Details(int id)
+        {
+            var c = oClienteService.oRepositoryCliente.SelecionarPK(id);   
+            return View(c);
+        }
     }
 }
