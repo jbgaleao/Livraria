@@ -9,7 +9,7 @@
 <p>
     <a  class="btn btn-primary" asp-action="Create">Novo Cliente</a>
 </p>
-<table class="table table-hover">
+<table id="myTable" class="table table-hover">
     <thead>
         <tr>
             <th>
@@ -52,3 +52,16 @@
         }
     </tbody>
 </table>
+
+@section Scripts {
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            language: {
+                search: 'Buscar por...',
+                url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/pt-BR.json'
+            }
+        });
+    });
+</script>
+}
