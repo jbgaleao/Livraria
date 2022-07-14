@@ -21,7 +21,7 @@ namespace Livraria.DATA.Data
         }
 
         public virtual DbSet<Cliente> Cliente { get; set; }
-        public virtual DbSet<Livros> Livros { get; set; }
+        public virtual DbSet<Livro> Livros { get; set; }
         public virtual DbSet<LivrosClientes> LivrosCliente { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -29,7 +29,7 @@ namespace Livraria.DATA.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=NO00108978;Initial Catalog=Livraria;Persist Security Info=True;User ID=sa;Password=sa");
+                optionsBuilder.UseSqlServer("Data Source=JBG-LENOVOGMING\\SQLEXPRESS;Initial Catalog=Livraria;Persist Security Info=True;User ID=sa;Password=sa");
             }
         }
 
@@ -56,7 +56,7 @@ namespace Livraria.DATA.Data
                 entity.Property(e => e.TelefoneFixo).IsUnicode(false);
             });
 
-            modelBuilder.Entity<Livros>(entity =>
+            modelBuilder.Entity<Livro>(entity =>
             {
                 entity.Property(e => e.Autor).IsUnicode(false);
 

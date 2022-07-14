@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Livraria.DATA.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Clientes</h1>
+
+<p>
+    <a  class="btn btn-primary" asp-action="Create">Novo Cliente</a>
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefoneCelular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefoneFixo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="vertical-align: central;">
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelefoneCelular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelefoneFixo)
+                </td>
+                <td class="row">
+                    <a asp-action="Edit" class="btn btn-dark m-1" asp-route-id="@item.Id">Editar</a>
+                    <a asp-action="Details" class="btn btn-primary m-1" asp-route-id="@item.Id">Detalhes</a>
+                    <a asp-action="Delete" class="btn btn-danger m-1" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

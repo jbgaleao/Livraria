@@ -2,7 +2,7 @@
 
 namespace Livraria.DATA.Interfaces
 {
-    public interface IRepositoryCliente:IRepositoryBase<Cliente>
+    public interface IRepositoryCliente : IRepositoryBase<Cliente>
     {
 
     }

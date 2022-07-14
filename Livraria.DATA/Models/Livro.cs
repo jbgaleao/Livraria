@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Livraria.DATA.Models
 {
-    public partial class Livros
+    public partial class Livro
     {
-        public Livros()
+        public Livro()
         {
             LivrosCliente = new HashSet<LivrosClientes>();
         }

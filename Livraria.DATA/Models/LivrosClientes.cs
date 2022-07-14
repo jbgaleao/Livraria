@@ -25,7 +25,7 @@ namespace Livraria.DATA.Models
         [InverseProperty(nameof(Cliente.LivrosCliente))]
         public virtual Cliente IdClienteNavigation { get; set; }
         [ForeignKey(nameof(IdLivro))]
-        [InverseProperty(nameof(Livros.LivrosCliente))]
-        public virtual Livros IdLivroNavigation { get; set; }
+        [InverseProperty(nameof(Livro.LivrosCliente))]
+        public virtual Livro IdLivroNavigation { get; set; }
     }
 }

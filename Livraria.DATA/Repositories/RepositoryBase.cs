@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Livraria.DATA.Data;
+﻿using Livraria.DATA.Data;
 using Livraria.DATA.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Livraria.DATA.Repositories
 {
@@ -70,7 +70,7 @@ namespace Livraria.DATA.Repositories
             return _contexto.Set<T>().Find(variavel);
         }
 
-        public List<T> SelecinarTodos()
+        public List<T> SelecionarTodos()
         {
             return _contexto.Set<T>().ToList();
         }
