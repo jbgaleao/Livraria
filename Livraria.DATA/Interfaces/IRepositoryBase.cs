@@ -8,7 +8,7 @@ namespace Livraria.DATA.Interfaces
         T SelecionarPK(params object[] variavel);
         T Incluir(T objeto);
         T Alterar(T objeto);
-        void Excluir(T objeto);
+        void ExcluirObjeto(T objeto);
         void Excluir(params object[] variavel);
         void Savechanges();
     }

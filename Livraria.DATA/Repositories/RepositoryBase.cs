@@ -35,7 +35,7 @@ namespace Livraria.DATA.Repositories
             _contexto.Dispose();
         }
 
-        public void Excluir(T objeto)
+        public void ExcluirObjeto(T objeto)
         {
             _contexto.Set<T>().Remove(objeto);
             if (_SaveChanges)
@@ -47,8 +47,9 @@ namespace Livraria.DATA.Repositories
         public void Excluir(params object[] variavel)
         {
             object obj = SelecionarPK(variavel);
-            Excluir(obj);
+            ExcluirObjeto((T)obj);
         }
+
 
         public T Incluir(T objeto)
         {

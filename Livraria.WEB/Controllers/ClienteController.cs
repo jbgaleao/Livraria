@@ -10,6 +10,9 @@ namespace Livraria.WEB.Controllers
     public class ClienteController : Controller
     {
         private ClienteService oClienteService = new ClienteService();
+
+
+
         public IActionResult Index()
         {
             List<Cliente> oListCliente = oClienteService.oRepositoryCliente.SelecionarTodos();
@@ -33,10 +36,35 @@ namespace Livraria.WEB.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(int Id)
         {
-            var c = oClienteService.oRepositoryCliente.SelecionarPK(id);   
+            Cliente c = oClienteService.oRepositoryCliente.SelecionarPK(Id);
             return View(c);
         }
+
+        public IActionResult Edit(int Id)
+        {
+            Cliente c = oClienteService.oRepositoryCliente.SelecionarPK(Id);
+            return View(c);
+        }
+        
+        [HttpPost]
+        public IActionResult Edit(Cliente cliente)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            oClienteService.oRepositoryCliente.Alterar(cliente);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int Id)
+        {
+            oClienteService.oRepositoryCliente.Excluir(Id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

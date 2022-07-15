@@ -1,39 +1,39 @@
 ﻿@model Livraria.DATA.Models.Cliente
 
 @{
-    ViewData["Title"] = "Detalhes do Cliente";
+    ViewData["Title"] = "Editar Cliente";
 }
 
-<h1>Detalhes do Cliente</h1>
+<h1>Editar Cliente</h1>
 
-@*<h4>Preencha os campos abaixo</h4>*@
+<h4>Preencha os campos abaixo</h4>
 <hr />
 <div>
-    <a class="btn btn-success m-1" asp-action="Create">Novo Cliente...</a>&nbsp;
-    <a class="btn btn-primary" asp-action="Create">Voltar</a>
+    <a class="btn btn-primary" asp-action="Index">Voltar...</a>
 </div>
 <br />
 <div class="row">
     <div class="col-md">
-        <form>
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+            <input type="hidden" asp-for="Id" />
             <div class="card">
                 <div class="card-header alert-secondary" style="font-style:italic">Dados Pessoais</div>
                 <div class="card-body row">
                     <div class="col-md">
                         <div class="form-group">
-                            <label asp-for="Nome" class="control-label"></label>
-                            <input disabled asp-for="Nome" class="form-control" />
+                            <label asp-for="Cpf" class="control-label"></label>
+                            <input asp-for="Cpf" class="form-control" />
+                            <span asp-validation-for="Cpf" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-group">
-                            <label asp-for="Cpf" class="control-label"></label>
-                            <input disabled asp-for="Cpf" class="form-control" />
+                            <label asp-for="Nome" class="control-label"></label>
+                            <input asp-for="Nome" class="form-control" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -46,24 +46,27 @@
                     <div class="col-md">
                         <div class="form-group ">
                             <label asp-for="Endereco" class="control-label"></label>
-                            <input disabled asp-for="Endereco" class="form-control" />
+                            <input asp-for="Endereco" class="form-control" />
+                            <span asp-validation-for="Endereco" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Bairro" class="control-label"></label>
-                            <input disabled asp-for="Bairro" class="form-control" />
+                            <input asp-for="Bairro" class="form-control" />
+                            <span asp-validation-for="Bairro" class="text-danger"></span>
                         </div>
                     </div>
 
                     <div class="col-md">
                         <div class="form-group">
-                            <label asp-for="Numero" class="control-label"></label>
-                            <input disabled asp-for="Numero" class="form-control" />
+                            <label asp-for="Cidade" class="control-label"></label>
+                            <input asp-for="Cidade" class="form-control" />
+                            <span asp-validation-for="Cidade" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Cidade" class="control-label"></label>
-                            <input disabled asp-for="Cidade" class="form-control" />
+                            <label asp-for="Numero" class="control-label"></label>
+                            <input asp-for="Numero" class="form-control" />
+                            <span asp-validation-for="Numero" class="text-danger"></span>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -76,18 +79,23 @@
                     <div class="col-md">
                         <div class="form-group">
                             <label asp-for="TelefoneCelular" class="control-label"></label>
-                            <input disabled asp-for="TelefoneCelular" class="form-control" />
+                            <input asp-for="TelefoneCelular" class="form-control" />
+                            <span asp-validation-for="TelefoneCelular" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-group">
                             <label asp-for="TelefoneFixo" class="control-label"></label>
-                            <input disabled asp-for="TelefoneFixo" class="form-control" />
+                            <input asp-for="TelefoneFixo" class="form-control" />
+                            <span asp-validation-for="TelefoneFixo" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <br />
+            <div>
+                <a class="btn btn-primary" asp-action="Edit">Gravar</a>
+            </div>
         </form>
     </div>
 </div>
@@ -97,3 +105,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
