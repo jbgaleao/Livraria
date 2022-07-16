@@ -2,49 +2,37 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace Livraria.DATA.Models
 {
-    public partial class Livro
+    public partial class Livros
     {
-        public Livro()
+        public Livros()
         {
-            LivrosCliente = new HashSet<LivrosClientes>();
+            LivrosCliente = new HashSet<LivrosCliente>();
         }
 
         [Key]
         public int Id { get; set; }
         [Required]
-        [DisplayName("Nome do Livro")]
         [StringLength(50)]
         public string Nome { get; set; }
-
         [Required]
-        [DisplayName("Nome do Autor")]
         [StringLength(100)]
         public string Autor { get; set; }
-
         [Required]
-        [DisplayName("Editora")]
         [StringLength(100)]
         public string Editora { get; set; }
-
-        [DisplayName("Ano da Publicação")]
         [Column(TypeName = "datetime")]
         public DateTime AnoPublicacao { get; set; }
-
         [Required]
-        [DisplayName("Edição")]
         [StringLength(50)]
         public string Edicao { get; set; }
 
-
-
         [InverseProperty("IdLivroNavigation")]
-        public virtual ICollection<LivrosClientes> LivrosCliente { get; set; }
+        public virtual ICollection<LivrosCliente> LivrosCliente { get; set; }
     }
 }

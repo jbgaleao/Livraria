@@ -8,10 +8,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Livraria.DATA.Models
 {
-    [Table("Livros_Cliente")]
-    public partial class LivrosClientes
+    [Keyless]
+    public partial class VwEmprestimo
     {
-        [Key]
+        [Required]
+        [Column("CPF")]
+        [StringLength(14)]
+        public string Cpf { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string NomeCliente { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string NomeLivro { get; set; }
         public int Id { get; set; }
         public int? IdCliente { get; set; }
         public int? IdLivro { get; set; }
@@ -20,12 +29,5 @@ namespace Livraria.DATA.Models
         [Column(TypeName = "datetime")]
         public DateTime? DataEntrega { get; set; }
         public bool? Entregue { get; set; }
-
-        [ForeignKey(nameof(IdCliente))]
-        [InverseProperty(nameof(Cliente.LivrosCliente))]
-        public virtual Cliente IdClienteNavigation { get; set; }
-        [ForeignKey(nameof(IdLivro))]
-        [InverseProperty(nameof(Livro.LivrosCliente))]
-        public virtual Livro IdLivroNavigation { get; set; }
     }
 }

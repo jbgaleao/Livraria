@@ -24,6 +24,10 @@
       {
          "Name": "[dbo].[Livros_Cliente]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VW_Emprestimo]",
+         "ObjectType": 3
       }
    ],
    "UiHint": "NO00108978.Livraria",

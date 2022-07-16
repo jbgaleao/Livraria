@@ -21,15 +21,15 @@ namespace Livraria.DATA.Data
         }
 
         public virtual DbSet<Cliente> Cliente { get; set; }
-        public virtual DbSet<Livro> Livros { get; set; }
-        public virtual DbSet<LivrosClientes> LivrosCliente { get; set; }
+        public virtual DbSet<Livros> Livros { get; set; }
+        public virtual DbSet<LivrosCliente> LivrosCliente { get; set; }
+        public virtual DbSet<VwEmprestimo> VwEmprestimo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-               // optionsBuilder.UseSqlServer("Data Source=JBG-LENOVOGMING\\SQLEXPRESS;Initial Catalog=Livraria;Persist Security Info=True;User ID=sa;Password=sa");
                 optionsBuilder.UseSqlServer("Data Source=NO00108978;Initial Catalog=Livraria;Persist Security Info=True;User ID=sa;Password=sa");
             }
         }
@@ -57,7 +57,7 @@ namespace Livraria.DATA.Data
                 entity.Property(e => e.TelefoneFixo).IsUnicode(false);
             });
 
-            modelBuilder.Entity<Livro>(entity =>
+            modelBuilder.Entity<Livros>(entity =>
             {
                 entity.Property(e => e.Autor).IsUnicode(false);
 
@@ -68,7 +68,7 @@ namespace Livraria.DATA.Data
                 entity.Property(e => e.Nome).IsUnicode(false);
             });
 
-            modelBuilder.Entity<LivrosClientes>(entity =>
+            modelBuilder.Entity<LivrosCliente>(entity =>
             {
                 entity.HasOne(d => d.IdClienteNavigation)
                     .WithMany(p => p.LivrosCliente)
@@ -79,6 +79,17 @@ namespace Livraria.DATA.Data
                     .WithMany(p => p.LivrosCliente)
                     .HasForeignKey(d => d.IdLivro)
                     .HasConstraintName("FK_Livros_Cliente_Livros");
+            });
+
+            modelBuilder.Entity<VwEmprestimo>(entity =>
+            {
+                entity.ToView("VW_Emprestimo");
+
+                entity.Property(e => e.Cpf).IsUnicode(false);
+
+                entity.Property(e => e.NomeCliente).IsUnicode(false);
+
+                entity.Property(e => e.NomeLivro).IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -2,7 +2,6 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -13,52 +12,36 @@ namespace Livraria.DATA.Models
     {
         public Cliente()
         {
-            LivrosCliente = new HashSet<LivrosClientes>();
+            LivrosCliente = new HashSet<LivrosCliente>();
         }
 
         [Key]
         public int Id { get; set; }
-
         [Required]
         [Column("CPF")]
-        [DisplayName("CPF")]
         [StringLength(14)]
         public string Cpf { get; set; }
-        
         [Required]
-        [DisplayName("Nome Cliente")]
         [StringLength(100)]
         public string Nome { get; set; }
-        
         [Required]
-        [DisplayName("Endereço")]
         [StringLength(50)]
         public string Endereco { get; set; }
-        
         [Required]
-        [DisplayName("Bairro")]
         [StringLength(50)]
         public string Bairro { get; set; }
-        
         [Required]
-        [DisplayName("Cidade")]
         [StringLength(50)]
         public string Cidade { get; set; }
-
         [Required]
-        [DisplayName("Número/Complemento")]
         [StringLength(50)]
         public string Numero { get; set; }
-
         [StringLength(14)]
-        [DisplayName("Telefone Celular")]
         public string TelefoneCelular { get; set; }
-
         [StringLength(13)]
-        [DisplayName("Telefone Fixo")]
         public string TelefoneFixo { get; set; }
 
         [InverseProperty("IdClienteNavigation")]
-        public virtual ICollection<LivrosClientes> LivrosCliente { get; set; }
+        public virtual ICollection<LivrosCliente> LivrosCliente { get; set; }
     }
 }
