@@ -1,8 +1,41 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div class="text-center container-fluid">
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <div class="card mb-3 m-2" style="max-width: 480px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <a asp-controller="Cliente" asp-action="Index">
+                        <img src="~/images/clientes.png" style="height:128px; width:128px;" class="img-fluid rounded-start" alt="...">
+                    </a>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">CLIENTES</h5>
+                        <p class="card-text">Gerenciamento de Clientes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 m-2" style="max-width: 480px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <a asp-controller="Livro" asp-action="Index">
+                        <img src="~/images/livro.jpg" style="height:128px; width:128px;" class="img-fluid rounded-start" alt="...">
+                    </a>
+
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">LIVROS</h5>
+                        <p class="card-text">Gerenciamento de Livros</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

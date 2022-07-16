@@ -1,9 +1,9 @@
-﻿using Livraria.WEB.Models;
+﻿using System.Diagnostics;
+
+using Livraria.WEB.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-
-using System.Diagnostics;
 
 namespace Livraria.WEB.Controllers
 {

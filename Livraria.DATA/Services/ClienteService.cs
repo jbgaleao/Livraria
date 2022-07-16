@@ -10,6 +10,5 @@ namespace Livraria.DATA.Services
         {
             oRepositoryCliente = new RepositoryCliente();
         }
-
     }
 }

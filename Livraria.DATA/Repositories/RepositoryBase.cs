@@ -1,11 +1,11 @@
-﻿using Livraria.DATA.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using Livraria.DATA.Data;
 using Livraria.DATA.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Livraria.DATA.Repositories
 {

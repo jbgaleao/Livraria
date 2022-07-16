@@ -3,96 +3,107 @@
 @{
     ViewData["Title"] = "Detalhes do Cliente";
 }
-
-<h1>Detalhes do Cliente</h1>
-
-@*<h4>Preencha os campos abaixo</h4>*@
-<hr />
-<div>
-    <a class="btn btn-success m-1" asp-action="Create">Novo Cliente...</a>&nbsp;
-    <a class="btn btn-primary" asp-action="Create">Voltar</a>
-</div>
-<br />
-<div class="row">
-    <div class="col-md">
-        <form>
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <div class="card">
-                <div class="card-header alert-secondary" style="font-style:italic">Dados Pessoais</div>
-                <div class="card-body row">
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label asp-for="Nome" class="control-label"></label>
-                            <input disabled asp-for="Nome" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label asp-for="Cpf" class="control-label"></label>
-                            <input disabled asp-for="Cpf" class="form-control" />
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-
-            <br />
-
-            <div class="card">
-                <div class="card-header alert-secondary" style="font-style:italic">Dados do Endereço</div>
-                <div class="card-body row">
-                    <div class="col-md">
-                        <div class="form-group ">
-                            <label asp-for="Endereco" class="control-label"></label>
-                            <input disabled asp-for="Endereco" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Bairro" class="control-label"></label>
-                            <input disabled asp-for="Bairro" class="form-control" />
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label asp-for="Numero" class="control-label"></label>
-                            <input disabled asp-for="Numero" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Cidade" class="control-label"></label>
-                            <input disabled asp-for="Cidade" class="form-control" />
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <br />
-
-            <div class="card">
-                <div class="card-header alert-secondary" style="font-style:italic">Dados Pessoais</div>
-                <div class="card-body row">
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label asp-for="TelefoneCelular" class="control-label"></label>
-                            <input disabled asp-for="TelefoneCelular" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label asp-for="TelefoneFixo" class="control-label"></label>
-                            <input disabled asp-for="TelefoneFixo" class="form-control" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </form>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/pessoal.css" />
+</head>
+<body>
+    <h1>Detalhes do Cliente</h1>
+    <hr />
+    <div>
+        <a class="btn btn-primary" asp-action="Index">Voltar...</a>
     </div>
-</div>
+    <br />
+    <div class="row">
+        <div class="col-md">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="card">
+                    <div class="card-header alert-secondary" style="font-style:italic;" icon="~/images/person-check-fill.svg">
+                        <img class="card-img-top imagemHeaderCard" src="~/images/person.svg" />
+                        Dados Pessoais
+                    </div>
+                    <div class="card-body row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label asp-for="Nome" class="control-label"></label>
+                                <input disabled asp-for="Nome" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label asp-for="Cpf" class="control-label"></label>
+                                <input disabled asp-for="Cpf" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
+                <br />
+
+                <div class="card">
+                    <div class="card-header alert-secondary" style="font-style:italic">
+                        <img class="card-img-top imagemHeaderCard" src="~/images/shop.svg" />
+                        Dados do Endereço
+                    </div>
+                    <div class="card-body row">
+                        <div class="col-md">
+                            <div class="form-group ">
+                                <label asp-for="Endereco" class="control-label"></label>
+                                <input disabled asp-for="Endereco" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Bairro" class="control-label"></label>
+                                <input disabled asp-for="Bairro" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label asp-for="Numero" class="control-label"></label>
+                                <input disabled asp-for="Numero" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Cidade" class="control-label"></label>
+                                <input disabled asp-for="Cidade" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="card">
+                    <div class="card-header alert-secondary" style="font-style:italic">
+                        <img class="card-img-top imagemHeaderCard" src="~/images/telephone.svg" />
+                        Contatos
+                    </div>
+                    <div class="card-body row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label asp-for="TelefoneCelular" class="control-label"></label>
+                                <input disabled asp-for="TelefoneCelular" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label asp-for="TelefoneFixo" class="control-label"></label>
+                                <input disabled asp-for="TelefoneFixo" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Incluir" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -7,16 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Livraria.WEB.Controllers
 {
-    public class ClienteController : Controller
+    public class LivroController : Controller
     {
-        private readonly ClienteService oClienteService = new ClienteService();
-
+        private readonly LivroService oLivroService = new LivroService();
 
 
         public IActionResult Index()
         {
-            List<Cliente> oListCliente = oClienteService.oRepositoryCliente.SelecionarTodos();
-            return View(oListCliente);
+            List<Livro> oListLivro = oLivroService.oRepositoryLivro.SelecionarTodos();
+            return View(oListLivro);
         }
 
         public IActionResult Create()
@@ -25,44 +24,44 @@ namespace Livraria.WEB.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Cliente cliente)
+        public IActionResult Create(Livro livro)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            oClienteService.oRepositoryCliente.Incluir(cliente);
+            oLivroService.oRepositoryLivro.Incluir(livro);
             return RedirectToAction("Index");
         }
 
         public IActionResult Details(int Id)
         {
-            Cliente c = oClienteService.oRepositoryCliente.SelecionarPK(Id);
-            return View(c);
+            Livro Livro = oLivroService.oRepositoryLivro.SelecionarPK(Id);
+            return View(Livro);
         }
 
         public IActionResult Edit(int Id)
         {
-            Cliente c = oClienteService.oRepositoryCliente.SelecionarPK(Id);
-            return View(c);
+            Livro livro = oLivroService.oRepositoryLivro.SelecionarPK(Id);
+            return View(livro);
         }
 
         [HttpPost]
-        public IActionResult Edit(Cliente cliente)
+        public IActionResult Edit(Livro livro)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            oClienteService.oRepositoryCliente.Alterar(cliente);
+            oLivroService.oRepositoryLivro.Alterar(livro);
             return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int Id)
         {
-            oClienteService.oRepositoryCliente.Excluir(Id);
+            oLivroService.oRepositoryLivro.Excluir(Id);
             return RedirectToAction("Index");
         }
 
