@@ -2,11 +2,8 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
-namespace Livraria.DATA.Models
+namespace Livraria.WEB.Models
 {
     public partial class Cliente
     {
@@ -15,33 +12,16 @@ namespace Livraria.DATA.Models
             LivroCliente = new HashSet<LivroCliente>();
         }
 
-        [Key]
         public int Id { get; set; }
-        [Required]
-        [Column("CPF")]
-        [StringLength(14)]
         public string Cpf { get; set; }
-        [Required]
-        [StringLength(100)]
         public string Nome { get; set; }
-        [Required]
-        [StringLength(50)]
         public string Endereco { get; set; }
-        [Required]
-        [StringLength(50)]
         public string Bairro { get; set; }
-        [Required]
-        [StringLength(50)]
         public string Cidade { get; set; }
-        [Required]
-        [StringLength(50)]
         public string Numero { get; set; }
-        [StringLength(14)]
         public string TelefoneCelular { get; set; }
-        [StringLength(13)]
         public string TelefoneFixo { get; set; }
 
-        [InverseProperty("IdClienteNavigation")]
         public virtual ICollection<LivroCliente> LivroCliente { get; set; }
     }
 }

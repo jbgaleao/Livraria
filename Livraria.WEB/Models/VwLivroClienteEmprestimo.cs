@@ -2,32 +2,20 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
-namespace Livraria.DATA.Models
+namespace Livraria.WEB.Models
 {
-
     public partial class VwLivroClienteEmprestimo
     {
         public int Id { get; set; }
         public int? IdCliente { get; set; }
-        [Required]
-        [Column("CPF")]
-        [StringLength(14)]
         public string Cpf { get; set; }
-        [Required]
-        [StringLength(100)]
         public string NomeCliente { get; set; }
         public int? IdLivro { get; set; }
-        [Column(TypeName = "datetime")]
+        public string NomeLivro { get; set; }
+        public string Autor { get; set; }
         public DateTime? DataEmprestimo { get; set; }
-        [Column(TypeName = "datetime")]
         public DateTime? DataEntrega { get; set; }
         public bool? Entregue { get; set; }
-        [Required]
-        [StringLength(50)]
-        public string NomeLivro { get; set; }
     }
 }

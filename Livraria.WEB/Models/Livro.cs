@@ -2,11 +2,8 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
-namespace Livraria.DATA.Models
+namespace Livraria.WEB.Models
 {
     public partial class Livro
     {
@@ -15,24 +12,13 @@ namespace Livraria.DATA.Models
             LivroCliente = new HashSet<LivroCliente>();
         }
 
-        [Key]
         public int Id { get; set; }
-        [Required]
-        [StringLength(50)]
         public string Nome { get; set; }
-        [Required]
-        [StringLength(100)]
         public string Autor { get; set; }
-        [Required]
-        [StringLength(100)]
         public string Editora { get; set; }
-        [Column(TypeName = "datetime")]
         public DateTime AnoPublicacao { get; set; }
-        [Required]
-        [StringLength(50)]
         public string Edicao { get; set; }
 
-        [InverseProperty("IdLivroNavigation")]
         public virtual ICollection<LivroCliente> LivroCliente { get; set; }
     }
 }

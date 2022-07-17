@@ -9,10 +9,13 @@ namespace Livraria.WEB.Controllers
 {
     public class EmprestimosController : Controller
     {
+
+        private LivroClienteEmprestimoService _service = new LivroClienteEmprestimoService();
+
         public IActionResult Index()
         {
-
-            return View();
+            List<VwLivroClienteEmprestimo> oListVwLivroClienteEmprestimo = _service.oRepositoryVwLivroClienteEmprestimo.SelecionarTodos();
+            return View(oListVwLivroClienteEmprestimo);
         }
 
     }

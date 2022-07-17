@@ -21,8 +21,8 @@ namespace Livraria.DATA.Data
         }
 
         public virtual DbSet<Cliente> Cliente { get; set; }
-        public virtual DbSet<Livro> Livros { get; set; }
-        public virtual DbSet<LivroClienteEmprestimo> LivrosCliente { get; set; }
+        public virtual DbSet<Livro> Livro { get; set; }
+        public virtual DbSet<LivroCliente> LivroCliente { get; set; }
         public virtual DbSet<VwLivroClienteEmprestimo> VwLivroClienteEmprestimo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -30,7 +30,7 @@ namespace Livraria.DATA.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=NO00108978;Initial Catalog=Livraria;Persist Security Info=True;User ID=sa;Password=sa");
+                optionsBuilder.UseSqlServer("Data Source=JBG-LENOVOGMING\\SQLEXPRESS;Initial Catalog=Livraria;Persist Security Info=True;User ID=sa;Password=sa");
             }
         }
 
@@ -68,15 +68,15 @@ namespace Livraria.DATA.Data
                 entity.Property(e => e.Nome).IsUnicode(false);
             });
 
-            modelBuilder.Entity<LivroClienteEmprestimo>(entity =>
+            modelBuilder.Entity<LivroCliente>(entity =>
             {
                 entity.HasOne(d => d.IdClienteNavigation)
-                    .WithMany(p => p.LivrosCliente)
+                    .WithMany(p => p.LivroCliente)
                     .HasForeignKey(d => d.IdCliente)
                     .HasConstraintName("FK_Livros_Cliente_Cliente");
 
                 entity.HasOne(d => d.IdLivroNavigation)
-                    .WithMany(p => p.LivrosCliente)
+                    .WithMany(p => p.LivroCliente)
                     .HasForeignKey(d => d.IdLivro)
                     .HasConstraintName("FK_Livros_Cliente_Livros");
             });

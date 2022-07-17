@@ -1,14 +1,14 @@
 ﻿{
-   "CodeGenerationMode": 0,
+   "CodeGenerationMode": 2,
    "ContextClassName": "LivrariaContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
-   "IncludeConnectionString": true,
+   "IncludeConnectionString": false,
    "ModelNamespace": null,
    "OutputContextPath": "Data",
    "OutputPath": "Models",
-   "ProjectRootNamespace": "Livraria.DATA",
+   "ProjectRootNamespace": "Livraria.WEB",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
    "SelectedToBeGenerated": 0,
@@ -26,7 +26,7 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[VW_Livro_Cliente_Emprestimo]",
+         "Name": "[dbo].[VwLivroClienteEmprestimo]",
          "ObjectType": 3
       }
    ],
@@ -34,7 +34,7 @@
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": false,
-   "UseFluentApiOnly": false,
+   "UseFluentApiOnly": true,
    "UseHandleBars": false,
    "UseHierarchyId": false,
    "UseInflector": false,
