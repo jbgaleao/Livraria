@@ -1,0 +1,71 @@
+﻿@model Livraria.WEB.Models.EmprestimoViewModel
+
+<h4>LivroCliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <table id="myTable" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.oCliente.Cpf)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.oCliente.Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.oCliente.TelefoneCelular)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.oCliente.TelefoneFixo)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.oListCliste)
+                    {
+                        <tr>
+                            <td style="vertical-align: central;">
+                                @Html.DisplayFor(modelItem => item.Cpf)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TelefoneCelular)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TelefoneFixo)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+
+            <div class="form-group">
+                <label asp-for="dataEmprestimo" class="control-label"></label>
+                <input asp-for="dataEmprestimo" class="form-control" />
+                <span asp-validation-for="dataEmprestimo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dataEntrega" class="control-label"></label>
+                <input asp-for="dataEntrega" class="form-control" />
+                <span asp-validation-for="dataEntrega" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -7,17 +7,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.IdCliente)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Cpf)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.NomeCliente)
             </th>
-
             <th>
-                @Html.DisplayNameFor(model => model.IdLivro)
+                @Html.DisplayNameFor(model => model.NomeLivro)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DataEmprestimo)
@@ -28,9 +24,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Entregue)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NomeLivro)
-            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -39,18 +33,14 @@
         {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.IdLivro)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Cpf)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NomeCliente)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdCliente)
+                @Html.DisplayFor(modelItem => item.NomeLivro)
             </td>
-
             <td>
                 @Html.DisplayFor(modelItem => item.DataEmprestimo)
             </td>
@@ -60,9 +50,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Entregue)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeLivro)
-            </td>
+
             <td class="row">
                 <a asp-action="Edit" class="btn btn-warning m-1" asp-route-id="@item.Id">Editar</a>
                 <a asp-action="Details" class="btn btn-secondary m-1" asp-route-id="@item.Id">Detalhes</a>
