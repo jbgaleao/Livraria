@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Livraria.DATA.Models
 {
-    public partial class Livros
+    public partial class Livro
     {
-        public Livros()
+        public Livro()
         {
-            LivrosCliente = new HashSet<LivrosCliente>();
+            LivrosCliente = new HashSet<LivroClienteEmprestimo>();
         }
 
         [Key]
@@ -33,6 +33,6 @@ namespace Livraria.DATA.Models
         public string Edicao { get; set; }
 
         [InverseProperty("IdLivroNavigation")]
-        public virtual ICollection<LivrosCliente> LivrosCliente { get; set; }
+        public virtual ICollection<LivroClienteEmprestimo> LivrosCliente { get; set; }
     }
 }

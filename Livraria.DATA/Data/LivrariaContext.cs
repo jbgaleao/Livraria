@@ -21,9 +21,9 @@ namespace Livraria.DATA.Data
         }
 
         public virtual DbSet<Cliente> Cliente { get; set; }
-        public virtual DbSet<Livros> Livros { get; set; }
-        public virtual DbSet<LivrosCliente> LivrosCliente { get; set; }
-        public virtual DbSet<VwEmprestimo> VwEmprestimo { get; set; }
+        public virtual DbSet<Livro> Livros { get; set; }
+        public virtual DbSet<LivroClienteEmprestimo> LivrosCliente { get; set; }
+        public virtual DbSet<VwLivroClienteEmprestimo> VwLivroClienteEmprestimo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -57,7 +57,7 @@ namespace Livraria.DATA.Data
                 entity.Property(e => e.TelefoneFixo).IsUnicode(false);
             });
 
-            modelBuilder.Entity<Livros>(entity =>
+            modelBuilder.Entity<Livro>(entity =>
             {
                 entity.Property(e => e.Autor).IsUnicode(false);
 
@@ -68,7 +68,7 @@ namespace Livraria.DATA.Data
                 entity.Property(e => e.Nome).IsUnicode(false);
             });
 
-            modelBuilder.Entity<LivrosCliente>(entity =>
+            modelBuilder.Entity<LivroClienteEmprestimo>(entity =>
             {
                 entity.HasOne(d => d.IdClienteNavigation)
                     .WithMany(p => p.LivrosCliente)
@@ -81,9 +81,9 @@ namespace Livraria.DATA.Data
                     .HasConstraintName("FK_Livros_Cliente_Livros");
             });
 
-            modelBuilder.Entity<VwEmprestimo>(entity =>
+            modelBuilder.Entity<VwLivroClienteEmprestimo>(entity =>
             {
-                entity.ToView("VW_Emprestimo");
+                entity.ToView("VW_Livro_Cliente_Emprestimo");
 
                 entity.Property(e => e.Cpf).IsUnicode(false);
 

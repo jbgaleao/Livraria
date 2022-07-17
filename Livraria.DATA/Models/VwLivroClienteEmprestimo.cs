@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Livraria.DATA.Models
 {
-    [Keyless]
-    public partial class VwEmprestimo
+
+    public partial class VwLivroClienteEmprestimo
     {
         [Required]
         [Column("CPF")]
@@ -21,6 +21,7 @@ namespace Livraria.DATA.Models
         [Required]
         [StringLength(50)]
         public string NomeLivro { get; set; }
+        [Key]
         public int Id { get; set; }
         public int? IdCliente { get; set; }
         public int? IdLivro { get; set; }

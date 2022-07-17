@@ -12,7 +12,7 @@ namespace Livraria.DATA.Models
     {
         public Cliente()
         {
-            LivrosCliente = new HashSet<LivrosCliente>();
+            LivrosCliente = new HashSet<LivroClienteEmprestimo>();
         }
 
         [Key]
@@ -42,6 +42,6 @@ namespace Livraria.DATA.Models
         public string TelefoneFixo { get; set; }
 
         [InverseProperty("IdClienteNavigation")]
-        public virtual ICollection<LivrosCliente> LivrosCliente { get; set; }
+        public virtual ICollection<LivroClienteEmprestimo> LivrosCliente { get; set; }
     }
 }
