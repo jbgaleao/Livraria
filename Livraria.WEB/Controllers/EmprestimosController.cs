@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
-
+using System;
 using Livraria.DATA.Models;
 using Livraria.DATA.Services;
 using Livraria.WEB.Models;
 
 using Microsoft.AspNetCore.Mvc;
 
-using Cliente = Livraria.DATA.Models.Cliente;
-using Livro = Livraria.DATA.Models.Livro;
-using VwLivroClienteEmprestimo = Livraria.DATA.Models.VwLivroClienteEmprestimo;
 
 namespace Livraria.WEB.Controllers
 {
@@ -26,10 +23,37 @@ namespace Livraria.WEB.Controllers
         public IActionResult Create()
         {
             EmprestimoViewModel oEmprestimoViewModel = new EmprestimoViewModel();
+
             List<Cliente> _oListCliente = _service.oRepositoryCliente.SelecionarTodos();
             List<Livro> _oListLivro = _service.oRepositoryLivro.SelecionarTodos();
 
-            oEmprestimoViewModel.oListCliste = _oListCliente;
+            oEmprestimoViewModel.oListCliente = _oListCliente;
+            oEmprestimoViewModel.oListLivro = _oListLivro;
+            oEmprestimoViewModel.dataEmprestimo = DateTime.Now;
+            oEmprestimoViewModel.dataEntrega = DateTime.Now.AddDays(7);
+
+            return View(oEmprestimoViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Create(LivroCliente oLivroCliente)
+        {
+            //LivroCliente oLivroCliente = new LivroCliente()
+            //{
+            //    DataEmprestimo = evm.dataEntrega,
+            //    DataEntrega = evm.dataEntrega,
+            //    Entregue = false,
+            //    IdCliente = evm.hiddenIdCliente,
+            //    IdLivro = evm.hiddenIdLivro
+            //};
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
+            _service.oRepositoryLivroClienteEmprestimo.Incluir();
+
 
             return View();
         }

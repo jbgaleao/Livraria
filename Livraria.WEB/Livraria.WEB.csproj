@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Cliente.cs" />
+    <Compile Remove="Models\Livro.cs" />
+    <Compile Remove="Models\LivroCliente.cs" />
+    <Compile Remove="Models\VwLivroClienteEmprestimo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Bower" Version="1.3.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">

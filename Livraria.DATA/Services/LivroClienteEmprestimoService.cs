@@ -11,6 +11,7 @@ namespace Livraria.DATA.Services
         public RepositoryVwLivroClienteEmprestimo oRepositoryVwLivroClienteEmprestimo { get; set; }
         public RepositoryLivro oRepositoryLivro { get; set; }        
         public RepositoryCliente oRepositoryCliente { get; set; }
+        public RepositoryLivroClienteEmprestimo oRepositoryLivroClienteEmprestimo { get; set; }
 
 
         public LivroClienteEmprestimoService()
@@ -18,7 +19,7 @@ namespace Livraria.DATA.Services
             oRepositoryVwLivroClienteEmprestimo = new RepositoryVwLivroClienteEmprestimo();
             oRepositoryLivro = new RepositoryLivro();
             oRepositoryCliente = new RepositoryCliente();
-
+            oRepositoryLivroClienteEmprestimo = new RepositoryLivroClienteEmprestimo();
         }
     }
 }
