@@ -36,26 +36,26 @@ namespace Livraria.WEB.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(LivroCliente oLivroCliente)
+        public IActionResult Create(EmprestimoViewModel evm)
         {
-            //LivroCliente oLivroCliente = new LivroCliente()
-            //{
-            //    DataEmprestimo = evm.dataEntrega,
-            //    DataEntrega = evm.dataEntrega,
-            //    Entregue = false,
-            //    IdCliente = evm.hiddenIdCliente,
-            //    IdLivro = evm.hiddenIdLivro
-            //};
+            LivroCliente oLivroCliente = new LivroCliente()
+            {
+                DataEmprestimo = evm.dataEntrega,
+                DataEntrega = evm.dataEntrega,
+                Entregue = false,
+                IdCliente = evm.hiddenIdCliente,
+                IdLivro = evm.hiddenIdLivro
+            };
 
             if (!ModelState.IsValid)
             {
                 return RedirectToAction("Index");
             }
 
-            _service.oRepositoryLivroClienteEmprestimo.Incluir();
+            _service.oRepositoryLivroCliente.Incluir(oLivroCliente);
 
 
-            return View();
+            return RedirectToAction("Index");
         }
 
     }
