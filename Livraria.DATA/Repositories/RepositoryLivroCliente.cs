@@ -1,5 +1,4 @@
-﻿using Livraria.DATA.Interfaces;
-using Livraria.DATA.Models;
+﻿using Livraria.DATA.Models;
 
 namespace Livraria.DATA.Repositories
 {
